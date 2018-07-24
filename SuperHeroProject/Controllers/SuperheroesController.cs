@@ -70,6 +70,7 @@ namespace SuperHeroProject.Controllers
                     ModelState.AddModelError("", "Unable to save changes.");
                 }
             }
+            return View(superheroToUpdate);
         }
             
     }
