@@ -198,7 +198,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\SuperheroController.cs" />
+    <Compile Include="Controllers\SuperheroesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -273,10 +273,11 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Superhero\Create.cshtml" />
-    <Content Include="Views\Superhero\Delete.cshtml" />
-    <Content Include="Views\Superhero\Edit.cshtml" />
-    <Content Include="Views\Superhero\Details.cshtml" />
+    <Content Include="Views\Superheroes\Create.cshtml" />
+    <Content Include="Views\Superheroes\Edit.cshtml" />
+    <Content Include="Views\Superheroes\Details.cshtml" />
+    <Content Include="Views\Superheroes\Delete.cshtml" />
+    <Content Include="Views\Superheroes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
