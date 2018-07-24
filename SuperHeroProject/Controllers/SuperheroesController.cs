@@ -44,13 +44,19 @@ namespace SuperHeroProject.Controllers
                     return RedirectToAction("Index");
                 }
             }
-            catch 
+            catch
             {
                 ModelState.AddModelError("", "Unable to save changes.");
             }
             return View(superhero);
         }
-        public ActionResult Edit(int? id)
+        public ActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost, ActionName("Edit")]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditPost(int? id)
         {
             if (id == null)
             {
@@ -70,7 +76,25 @@ namespace SuperHeroProject.Controllers
                     ModelState.AddModelError("", "Unable to save changes.");
                 }
             }
-            return View(superheroToUpdate);
+            return RedirectToAction("Index");
+        }
+        public ActionResult Delete(int? id, bool? saveChangesError=false)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            if (saveChangesError.GetValueOrDefault())
+            {
+                ViewBag.ErrorMessage = "Delete failed.";
+            }
+            Superhero superhero = db.superheroes.Find(id);
+            if (superhero == null)
+            {
+                return HttpNotFound();
+            }
+            return View(superhero);
+
         }
             
     }

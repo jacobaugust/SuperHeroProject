@@ -1,6 +1,11 @@
-﻿@model IEnumerable<SuperHeroProject.Models.Superhero>
+﻿@{ 
+    ViewBag.Title = "Superhero List";
+}
+<h2>A Great Superhero Collection</h2>
 
-<img src="https://i.imgur.com/UxQEKPG.jpg" alt="Gambit" style="background-image;">
+@model IEnumerable<SuperHeroProject.Models.Superhero>
+
+
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
@@ -50,3 +55,4 @@
 }
 
 </table>
+<img src="https://i.imgur.com/UxQEKPG.jpg" alt="Gambit" style="background-image;">
