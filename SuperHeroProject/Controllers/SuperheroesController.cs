@@ -54,17 +54,20 @@ namespace SuperHeroProject.Controllers
         {
             return View();
         }
-        [HttpPost, ActionName("Edit")]
+        [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult EditPost(int? id)
+        public ActionResult Edit(Superhero superhero)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            var superheroToUpdate = db.superheroes.Find(id);
+
+            var superheroToUpdate = db.superheroes.Find(superhero.Id);
+            superheroToUpdate.SuperHeroName = superhero.SuperHeroName;
+            superheroToUpdate.AlterEgoName = superhero.AlterEgoName;
+            superheroToUpdate.PrimaryAbility = superhero.PrimaryAbility;
+            superheroToUpdate.SecondaryAbility = superhero.SecondaryAbility;
+            superheroToUpdate.CatchPhrase = superhero.CatchPhrase;
             if (TryUpdateModel(superheroToUpdate, "", new string[] { "SuperHeroName, AlterEgoName, PrimaryAbility, SecondaryAbility, CatchPhrase" }))
             {
+
                 try
                 {
                     db.SaveChanges();
@@ -77,6 +80,19 @@ namespace SuperHeroProject.Controllers
                 }
             }
             return RedirectToAction("Index");
+        }
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Superhero superhero = db.superheroes.Find(id);
+            if (superhero == null)
+            {
+                return HttpNotFound();
+            }
+            return View(superhero);
         }
         public ActionResult Delete(int? id, bool? saveChangesError=false)
         {
