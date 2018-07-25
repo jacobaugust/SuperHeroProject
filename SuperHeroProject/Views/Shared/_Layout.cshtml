@@ -9,10 +9,10 @@
 
 </head>
 <body>
-    <div class="navbar navbar-fixed-top navbar-light" style="background-color: #e3f2fd;">
+    <div class="navbar navbar-fixed-top navbar-light" style="background-color: #e3f2fd; font-family: Jazz LET; font-style: oblique;">
         <div class="container-fluid">
             <div class="navbar-brand">
-                <button type="button" class="float-xl-none navbar-toggler" data-toggle="collapse" data-target="#navbarNav">
+                <button type="button" class="float-xl-right  navbar-toggler" data-toggle="collapse" data-target="#navbarNav">
                     <span class="navbar-toggler-icon"></span>
                    
                 </button>
@@ -20,7 +20,7 @@
             </div>
             <div class="navbar-collapse collapse" id="navbarNav">
                 <ul class="navbar-nav mr-auto m-lg-2 mt-lg-0">
-                    <li class="nav-item active">@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li class="nav-item active" >@Html.ActionLink("Home", "Index", "Superheroes")</li>
                     <li class="nav-item active">@Html.ActionLink("About", "About", "Home")</li>
                     <li class="nav-item active">@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>
@@ -32,7 +32,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - Superhero Collection App</p>
         </footer>
     </div>
 
